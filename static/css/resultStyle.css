@@ -12,11 +12,23 @@
   justify-content: center;
 }
 #root > div {
-  width: 90vw;
+  width: 80vw;
   height: 15vh;
   border: 1px solid black;
   padding: 10px;
 }
 #root > div > pre {
-  font-size: 1rem;
+  font-size: 15px;
+}
+#root > form > select {
+  width: 30vw;
+  height: 3vh;
+}
+#root > form > input:nth-of-type(1) {
+  width: 30vw;
+  height: 3vh;
+}
+#root > form > input:nth-of-type(2) {
+  width: 15vw;
+  height: 5vh;
 }
