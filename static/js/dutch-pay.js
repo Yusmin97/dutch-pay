@@ -18,10 +18,13 @@ document.getElementById('calculator-btn').addEventListener('click', () => {
   let mainAlcohol = mainCost + alcoholShare;
   let mainDrink = mainCost + drinkShare;
 
+  let mainAlcoholRound = Math.round(mainAlcohol / 10) * 10;
+  let mainDrinkRound = Math.round(mainDrink / 10) * 10;
+
   let resultText = `
   각각 부담할 금액 :
-  - 술 마신 사람 : ${mainAlcohol} 원
-  - 음료 마신 사람 : ${mainDrink} 원`;
+  - 술 마신 사람 : ${mainAlcoholRound} 원
+  - 음료 마신 사람 : ${mainDrinkRound} 원`;
 
   let newWindow = window.open();
   newWindow.document.write(
@@ -32,6 +35,7 @@ document.getElementById('calculator-btn').addEventListener('click', () => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/static/css/resultStyle.css">
   </head>
   <body>
     <div id="root">
