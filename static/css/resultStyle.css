@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#root > div {
+  width: 90vw;
+  height: 15vh;
+  border: 1px solid black;
+  padding: 10px;
+}
+#root > div > pre {
+  font-size: 1rem;
+}
