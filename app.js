@@ -23,6 +23,16 @@ const server = http.createServer((req, res) => {
           res.end(data);
         }
       });
+    } else if (req.url === '/static/css/indexStyle.css') {
+      fs.readFile('./static/css/indexStyle.css', 'utf8', (err, data) => {
+        if (err) {
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
+          res.end('서버 에러');
+        } else {
+          res.writeHead(200, { 'Content-Type': 'text/css' });
+          res.end(data);
+        }
+      });
     } else {
       res.writeHead(404, {'Content-Type' : 'text/plain'})
       res.end('Not Found')
