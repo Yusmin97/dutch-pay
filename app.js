@@ -13,6 +13,14 @@ const server = http.createServer((req, res) => {
           res.end(data);
         }
       });
+    } else {
+      res.writeHead(404, {'Content-Type' : 'text/plain'})
+      res.end('Not Found')
     }
   }
 });
+
+const port = 8080
+server.listen(port, () => {
+  console.log(`서버가 http://localhost:${port}에서 실행 중입니다.`)
+})
