@@ -48,9 +48,38 @@ document.getElementById('calculator-btn').addEventListener('click', () => {
         <label for="bank-select">은행 선택:</label>
         <select id="bank-select">
           <option value="KB국민은행">KB국민은행</option>
+          <option value="기업은행">기업은행</option>
+          <option value="농협은행">농협은행</option>
+          <option value="산업은행">산업은행</option>
+          <option value="수협은행">수협은행</option>
+          <option value="신한은행">신한은행</option>
           <option value="우리은행">우리은행</option>
-          <option value="신한은행">신한은행</option></select
-        ><br />
+          <option value="우체국">우체국</option>
+          <option value="하나은행">하나은행</option>
+          <option value="한국씨티">한국씨티</option>
+          <option value="SC제일">SC제일</option>
+          <option value="카카오뱅크">카카오뱅크</option>
+          <option value="케이뱅크">케이뱅크</option>
+          <option value="토스뱅크">토스뱅크</option>
+          <option value="경남은행">경남은행</option>
+          <option value="광주은행">광주은행</option>
+          <option value="대구은행">대구은행</option>
+          <option value="부산은행">부산은행</option>
+          <option value="전북은행">전북은행</option>
+          <option value="제주은행">제주은행</option>
+          <option value="저축은행">저축은행</option>
+          <option value="산림조합은행">산림조합은행</option>
+          <option value="새마을은행">새마을은행</option>
+          <option value="신협은행">신협은행</option>
+          <option value="도이치은행">도이치은행</option>
+          <option value="뱅크오브아메리카">뱅크오브아메리카</option>
+          <option value="중국건설">중국건설</option>
+          <option value="중국공상">중국공상</option>
+          <option value="중국">중국</option>
+          <option value="HSBC은행">HSBC은행</option>
+          <option value="BNP파리바">BNP파리바</option>
+          <option value="JP모간체이스">JP모간체이스</option>
+          </select><br />
 
         <label for="account-number">은행 계좌:</label>
         <input type="text" id="account-number" placeholder="은행 계좌 입력" /><br />
