@@ -31,6 +31,15 @@
         background-position: center;
         text-align: center;
       }
+      #root > div > form > input {
+        width: 20vw;
+        height: 5vh;
+        margin-top: 1vh;
+      }
+      #root > div > form > #calculator-btn {
+        width: 10vw;
+        height: 5vh;
+      }
     </style>
   </head>
   <body>
@@ -38,28 +47,31 @@
       <button id="hideBtn">더치페이 계산기</button>
       <div id="dutchPage" style="display: none">
         <form id="calculator-form">
-          <label for="total-people">전체 인원:</label>
+          <label for="total-people">전체 인원:</label><br>
           <input type="number" id="total-people" required /><br />
 
-          <label for="main-food">음식 금액:</label>
+          <label for="main-food">음식 금액:</label><br>
           <input type="number" id="main-food" required /><br />
 
-          <label for="alcohol-people">술 마신 사람:</label>
+          <label for="alcohol-people">술 마신 사람:</label><br>
           <input type="number" id="alcohol-people" required /><br />
 
-          <label for="alcohol-cost">술 금액:</label>
+          <label for="alcohol-cost">술 금액:</label><br>
           <input type="number" id="alcohol-cost" required /><br />
 
-          <label for="drink-people">음료 마신 사람:</label>
+          <label for="drink-people">음료 마신 사람:</label><br>
           <input type="number" id="drink-people" required /><br />
 
-          <label for="drink-cost">음료 금액</label>
+          <label for="drink-cost">음료 금액:</label><br>
           <input type="number" id="drink-cost" required /><br />
 
           <input type="button" id="calculator-btn" value="계산하기" />
         </form>
       </div>
       <div id="resultPage" style="display: none">
+        <div>
+          <input type="button" id="backBtn" />
+        </div>
         <div>
           <pre id="preCreate"></pre>
         </div>
@@ -113,14 +125,21 @@
       const dutchPage = document.getElementById('dutchPage');
       const resultPage = document.getElementById('resultPage');
       const preCreate = document.getElementById('preCreate');
+      const backBtn = document.getElementById('backBtn');
 
       hideBtn.style.display = 'block';
 
       hideBtn.addEventListener('click', () => {
         hideBtn.style.display = 'none';
-        resultPage.style.display = 'none';
         dutchPage.style.display = 'block';
+        resultPage.style.display = 'none';
       });
+
+      backBtn.addEventListener('click', () => {
+        hideBtn.style.display = 'none';
+        dutchPage.style.display = 'block';
+        resultPage.style.display = 'none';
+      })
 
       document.getElementById('calculator-btn').addEventListener('click', () => {
         let mainFood = parseInt(document.getElementById('main-food').value);
@@ -155,7 +174,7 @@
 
         let mainAlcoholRound = Math.round(mainAlcohol / 10) * 10;
         let mainDrinkRound = Math.round(mainDrink / 10) * 10;
-        
+
         preCreate.textContent = `
   각각 부담할 금액 :
   - 술 마신 사람 : ${mainAlcoholRound} 원
