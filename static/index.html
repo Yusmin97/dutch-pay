@@ -24,7 +24,6 @@
       #root > button {
         width: 65vw;
         height: 10vh;
-        /* display: flex; */
         justify-content: center;
         align-items: center;
         background-color: azure;
@@ -61,6 +60,9 @@
         </form>
       </div>
       <div id="resultPage" style="display: none">
+        <div>
+          <pre id="preCreate"></pre>
+        </div>
         <form id="result">
           <label for="bank-select">은행 선택:</label>
           <select id="bank-select">
@@ -110,6 +112,7 @@
       const hideBtn = document.getElementById('hideBtn');
       const dutchPage = document.getElementById('dutchPage');
       const resultPage = document.getElementById('resultPage');
+      const preCreate = document.getElementById('preCreate');
 
       hideBtn.style.display = 'block';
 
@@ -152,11 +155,8 @@
 
         let mainAlcoholRound = Math.round(mainAlcohol / 10) * 10;
         let mainDrinkRound = Math.round(mainDrink / 10) * 10;
-
-        // let resultPage = document.getElementById('resultPage');
-        // let resultPre = document.createElement('pre');
-        // resultPre.appendChild(resultPage);
-        resultPre.textContent = `
+        
+        preCreate.textContent = `
   각각 부담할 금액 :
   - 술 마신 사람 : ${mainAlcoholRound} 원
   - 음료 마신 사람 : ${mainDrinkRound} 원`;
