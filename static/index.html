@@ -36,9 +36,7 @@
   </head>
   <body>
     <div id="root">
-      <!-- <div id="hiddenMain"> -->
       <button id="hideBtn">더치페이 계산기</button>
-      <!-- </div> -->
       <div id="dutchPage" style="display: none">
         <form id="calculator-form">
           <label for="total-people">전체 인원:</label>
@@ -62,16 +60,62 @@
           <input type="button" id="calculator-btn" value="계산하기" />
         </form>
       </div>
+      <div id="resultPage" style="display: none">
+        <form id="result">
+          <label for="bank-select">은행 선택:</label>
+          <select id="bank-select">
+            <option value="KB국민은행">KB국민은행</option>
+            <option value="기업은행">기업은행</option>
+            <option value="농협은행">농협은행</option>
+            <option value="산업은행">산업은행</option>
+            <option value="수협은행">수협은행</option>
+            <option value="신한은행">신한은행</option>
+            <option value="우리은행">우리은행</option>
+            <option value="우체국">우체국</option>
+            <option value="하나은행">하나은행</option>
+            <option value="한국씨티">한국씨티</option>
+            <option value="SC제일">SC제일</option>
+            <option value="카카오뱅크">카카오뱅크</option>
+            <option value="케이뱅크">케이뱅크</option>
+            <option value="토스뱅크">토스뱅크</option>
+            <option value="경남은행">경남은행</option>
+            <option value="광주은행">광주은행</option>
+            <option value="대구은행">대구은행</option>
+            <option value="부산은행">부산은행</option>
+            <option value="전북은행">전북은행</option>
+            <option value="제주은행">제주은행</option>
+            <option value="저축은행">저축은행</option>
+            <option value="산림조합은행">산림조합은행</option>
+            <option value="새마을은행">새마을은행</option>
+            <option value="신협은행">신협은행</option>
+            <option value="도이치은행">도이치은행</option>
+            <option value="뱅크오브아메리카">뱅크오브아메리카</option>
+            <option value="중국건설">중국건설</option>
+            <option value="중국공상">중국공상</option>
+            <option value="중국">중국</option>
+            <option value="HSBC은행">HSBC은행</option>
+            <option value="BNP파리바">BNP파리바</option>
+            <option value="JP모간체이스">JP모간체이스</option></select
+          ><br />
+
+          <label for="account-number">은행 계좌:</label>
+          <input type="text" id="account-number" placeholder="은행 계좌 입력" /><br />
+
+          <input type="button" id="send-kakao-btn" value="전송" />
+        </form>
+      </div>
     </div>
     <script>
       const hiddenMain = document.getElementById('hiddenMain');
       const hideBtn = document.getElementById('hideBtn');
       const dutchPage = document.getElementById('dutchPage');
+      const resultPage = document.getElementById('resultPage');
 
       hideBtn.style.display = 'block';
 
       hideBtn.addEventListener('click', () => {
         hideBtn.style.display = 'none';
+        resultPage.style.display = 'none';
         dutchPage.style.display = 'block';
       });
 
@@ -82,6 +126,10 @@
         let alcoholCost = parseInt(document.getElementById('alcohol-cost').value);
         let drinkPeople = parseInt(document.getElementById('drink-people').value);
         let drinkCost = parseInt(document.getElementById('drink-cost').value);
+
+        hideBtn.style.display = 'none';
+        dutchPage.style.display = 'none';
+        resultPage.style.display = 'block';
 
         if (
           mainFood < 0 ||
@@ -105,111 +153,13 @@
         let mainAlcoholRound = Math.round(mainAlcohol / 10) * 10;
         let mainDrinkRound = Math.round(mainDrink / 10) * 10;
 
-        let resultText = `
+        // let resultPage = document.getElementById('resultPage');
+        // let resultPre = document.createElement('pre');
+        // resultPre.appendChild(resultPage);
+        resultPre.textContent = `
   각각 부담할 금액 :
   - 술 마신 사람 : ${mainAlcoholRound} 원
   - 음료 마신 사람 : ${mainDrinkRound} 원`;
-
-        let newWindow = window.open();
-        newWindow.document.write(
-          `<!DOCTYPE html>
-        <html lang="ko">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Document</title>
-            <style>
-              * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        #root {
-          width: 100vw;
-          height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background-color: darkgray;
-        }
-        #root > div {
-          width: 80vw;
-          height: 15vh;
-          border: 1px solid black;
-          padding: 10px;
-          background-color: white;
-        }
-        #root > div > pre {
-          font-size: 15px;
-        }
-        #root > form > select {
-          width: 30vw;
-          height: 3vh;
-        }
-        #root > form > input:nth-of-type(1) {
-          width: 30vw;
-          height: 3vh;
-        }
-        #root > form > input:nth-of-type(2) {
-          width: 15vw;
-          height: 5vh;
-        }
-        </style>
-          </head>
-          <body>
-            <div id="root">
-              <div>
-                <pre>
-                ${resultText}
-                </pre>
-              </div>
-              <form id="result">
-                <label for="bank-select">은행 선택:</label>
-                <select id="bank-select">
-                  <option value="KB국민은행">KB국민은행</option>
-                  <option value="기업은행">기업은행</option>
-                  <option value="농협은행">농협은행</option>
-                  <option value="산업은행">산업은행</option>
-                  <option value="수협은행">수협은행</option>
-                  <option value="신한은행">신한은행</option>
-                  <option value="우리은행">우리은행</option>
-                  <option value="우체국">우체국</option>
-                  <option value="하나은행">하나은행</option>
-                  <option value="한국씨티">한국씨티</option>
-                  <option value="SC제일">SC제일</option>
-                  <option value="카카오뱅크">카카오뱅크</option>
-                  <option value="케이뱅크">케이뱅크</option>
-                  <option value="토스뱅크">토스뱅크</option>
-                  <option value="경남은행">경남은행</option>
-                  <option value="광주은행">광주은행</option>
-                  <option value="대구은행">대구은행</option>
-                  <option value="부산은행">부산은행</option>
-                  <option value="전북은행">전북은행</option>
-                  <option value="제주은행">제주은행</option>
-                  <option value="저축은행">저축은행</option>
-                  <option value="산림조합은행">산림조합은행</option>
-                  <option value="새마을은행">새마을은행</option>
-                  <option value="신협은행">신협은행</option>
-                  <option value="도이치은행">도이치은행</option>
-                  <option value="뱅크오브아메리카">뱅크오브아메리카</option>
-                  <option value="중국건설">중국건설</option>
-                  <option value="중국공상">중국공상</option>
-                  <option value="중국">중국</option>
-                  <option value="HSBC은행">HSBC은행</option>
-                  <option value="BNP파리바">BNP파리바</option>
-                  <option value="JP모간체이스">JP모간체이스</option>
-                  </select><br />
-                
-                <label for="account-number">은행 계좌:</label>
-                <input type="text" id="account-number" placeholder="은행 계좌 입력" /><br />
-                
-                <input type="button" id="send-kakao-btn" value="전송">
-              </form>
-            </div>
-          </body>
-        </html>`
-        );
       });
     </script>
   </body>
