@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="static/css/indexStyle.css"> -->
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+  background-size: cover;
+  background-position: center;
+}
+#root > div:nth-child(1) {
+  width: 65vw;
+  height: 10vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+  background-size: cover;
+  background-position: center;
+  text-align: center;             
+}
+#root > div:nth-child(1) > a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: black;
+}
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <a href="http://localhost:8080/dutchPay">더치페이 계산기</a>
+    </div>
+  </div>
+</body>
+</html>
