@@ -40,6 +40,14 @@
         width: 10vw;
         height: 5vh;
       }
+      #backBtn {
+        width: 2vw;
+        height: 2vw;
+        background-image: url(/static/img/pngtree-vector-back-icon-png-image_4224444.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
     </style>
   </head>
   <body>
@@ -70,13 +78,13 @@
       </div>
       <div id="resultPage" style="display: none">
         <div>
-          <input type="button" id="backBtn" />
+          <input type="button" id="backBtn" value=""/>
         </div>
         <div>
           <pre id="preCreate"></pre>
         </div>
         <form id="result">
-          <label for="bank-select">은행 선택:</label>
+          <label for="bank-select">은행 선택:</label><br>
           <select id="bank-select">
             <option value="KB국민은행">KB국민은행</option>
             <option value="기업은행">기업은행</option>
@@ -112,7 +120,7 @@
             <option value="JP모간체이스">JP모간체이스</option></select
           ><br />
 
-          <label for="account-number">은행 계좌:</label>
+          <label for="account-number">은행 계좌:</label><br>
           <input type="text" id="account-number" placeholder="은행 계좌 입력" /><br />
 
           <input type="button" id="send-kakao-btn" value="전송" />
